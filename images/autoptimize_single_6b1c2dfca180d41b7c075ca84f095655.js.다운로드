@@ -1,0 +1,10 @@
+function PutShareLog(ID,snstype,snsName,uniqPostID){var urlAjax=g_strMainURL+'/wp-admin/admin-ajax.php';jQuery.post(urlAjax,{action:'put_share_log',dataType:'json',post_id:ID,snstype:snstype,snsname:snsName},function(data){});if(snsName=='kakaotalk'){InitKakaobuttons(uniqPostID);}}
+function GetDateRange(startDate,endDate,listDate){var dateMove=new Date(startDate);var strDate=startDate;if(startDate==endDate){var strDate=dateMove.toISOString().slice(0,10);listDate.push(strDate);}
+else{while(strDate<endDate){var strDate=dateMove.toISOString().slice(0,10);listDate.push(strDate);dateMove.setDate(dateMove.getDate()+1);}}
+return listDate;}
+function GetDateFormat(strDateOrg){return strDateOrg.substr(0,4)+'-'+strDateOrg.substr(4,2)+'-'+strDateOrg.substr(6,2);}
+function GetStData(startDt,endDt,postLimitCount){var urlAjax=g_strMainURL+'/wp-admin/admin-ajax.php';var strDay='';var strPost='';var arDays=[];var arDataFull=[];GetDateRange(GetDateFormat(startDt),GetDateFormat(endDt),arDays);for(i=0;i<arDays.length;i++){arDataFull.push(new Array(arDays[i],0));}
+jQuery.post(urlAjax,{action:'get_st_data',dataType:'json',start_dt:startDt,end_dt:endDt,post_limit:postLimitCount},function(data){var arData=jQuery.parseJSON(data);if(arData.value){for(i=0;i<arData.day_data.length;i++){for(j=0;j<arDataFull.length;j++){if(arDataFull[j][0]==arData.day_data[i][0]){arDataFull[j][1]=arData.day_data[i][1];break;}}}
+LoadChart(arDataFull,arData.post_data);}
+else{LoadChart(arDataFull,null);}});}
+function RemoveStAllData(startDt,endDt,postLimitCount){var urlAjax=g_strMainURL+'/wp-admin/admin-ajax.php';jQuery.post(urlAjax,{action:'remove_all_st_data',dataType:'json'},function(data){GetStData(startDt,endDt,postLimitCount);});}

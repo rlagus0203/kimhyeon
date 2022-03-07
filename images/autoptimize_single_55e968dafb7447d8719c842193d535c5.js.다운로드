@@ -1,0 +1,1 @@
+jQuery(function($){var $search=$('#search');$('#header .btn-search').on('click',function(e){e.preventDefault();$search.addClass('active');});$('.btn-close',$search).on('click',function(e){e.preventDefault();$search.removeClass('active');});});
