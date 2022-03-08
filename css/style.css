@@ -32,12 +32,15 @@ a {
     max-width: 100%;
     margin: 0 auto;
 }
-
-/* 스타일 */
+image{
+        object-fit: contain;
+}
+/* 스타일 */    
 .top-bar-wrap {
     width: 100%;
     height: 80px;
 }
+
 /* 고정메뉴 */
 .top-bar-wrap>.top-bar {
     height: 80px;
@@ -49,6 +52,7 @@ a {
     right: 0;
     z-index: 99;
 }
+
 /* 왼쪽 메뉴들 */
 .top-bar-wrap>.top-bar>.left-nav-box>ul>li {
     line-height: 80px;
@@ -61,32 +65,42 @@ a {
     visibility: hidden;
     opacity: 0;
 }
+
 .top-bar-wrap>.top-bar>.left-nav-box>ul>li:hover>ul>li {
     visibility: visible;
     opacity: 1;
 }
+
 /* 가운데 빠바 로고박스 */
 .top-bar-wrap>.top-bar>.logo-box {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
+
 /* 오른쪽 메뉴들 */
 .top-bar-wrap>.top-bar>.right-nav-box>ul>li {
     line-height: 80px;
     font-weight: bold;
     margin-left: 20px;
-    margin-right: 20px; 
+    margin-right: 20px;
 }
+
 .top-bar-wrap>.top-bar>.right-nav-box>ul>li>ul>li {
     visibility: hidden;
     opacity: 0;
 }
+
 .top-bar-wrap>.top-bar>.right-nav-box>ul>li:hover>ul>li {
     visibility: visible;
     opacity: 1;
 }
+
 /* 오른쪽 메뉴 중 검색 아이콘 */
 .top-bar-wrap>.top-bar>.right-nav-box>.search-box {
     width: 80px;
@@ -101,7 +115,7 @@ a {
 }
 
 
-/* 첫번째 슬릭슬라이드 */
+/* 첫번째 슬라이드 */
 .main-section-wrap {
     max-width: 100%;
     margin: 0 auto;
@@ -123,7 +137,79 @@ a {
     background-position: center;
     background: rgba(0, 0, 0, 0.6);
 }
-.slide-box .content>.img-box:hover>img{
-    background: rgba(0,0,0,0);
+
+.slide-box .content>.img-box:hover>img {
+    background: rgba(0, 0, 0, 0);
 }
+
 /* 두번째 슬라이드 */
+
+.magazine-wrap {
+    max-width: 1860px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+/* .magazine-wrap>.section-title{
+    padding: ;
+} */
+
+.magazine-wrap .slide-box .content {
+    margin-right: 10px;
+    margin-left: 10px;
+    overflow: hidden;
+    position: relative;
+}.story-wrap>.pv-box>.pv-thumnail>.image-box{
+    width: 100%;
+    padding-bottom: 100% ;
+}
+
+/* ↘여기 백그라운드 속성이 안먹는거같아요.. */
+.magazine-wrap > .slide-box .content>.image-box>image {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.magazine-wrap > .slide-box .content:hover>.image-box >image{
+    background-size: auto 110%;
+}
+
+.magazine-wrap > .slide-box .content>.txt-box {
+    padding: 20px;
+    height: 150px;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    color:#fff;
+}
+.magazine-wrap > .slide-box .content>.txt-box>h1{
+    font-weight: bold;
+}
+/* 세번째 슬라이드 */
+.story-wrap{
+    width: 100%;
+    margin: 0 auto;
+}
+.story-wrap>.section-title{
+     padding:10%;
+}
+.story-wrap>.pv-box>.pv-thumnail{
+    width: 24%;
+    height: 300px;
+}
+.story-wrap>.pv-box>.pv-thumnail>.image-box{
+    width: 100%;
+    padding-bottom: 100% ;
+}
+.story-wrap>.pv-box>.pv-thumnail>.image-box>image{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+
+.story-wrap>.pv-box>.desk{
+    width: 24%;
+    height: 300px;
+    
+}

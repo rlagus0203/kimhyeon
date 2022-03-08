@@ -1,12 +1,17 @@
 $(document).ready(function(){
 
 
-     $(".slide-box").slick({
+     $(".main-section-wrap >.slide-box").slick({
           slidesToShow:3,
           swipeToSlide: true ,
           dots: true,
     });
 
-
+    $().ready(function(){
+  
+     $(".magazine-wrap >.slide-box").slick({
+       slidesToShow:3,
+     })
+   });
 
 });
